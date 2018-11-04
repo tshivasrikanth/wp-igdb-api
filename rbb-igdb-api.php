@@ -133,11 +133,11 @@ class IGDBPage {
     $searchKey = get_option('igdbsearchkey');
 
     if(count($_POST['delete_list'])){
-      $this->deleteSearchKeys('igdbSearched','searchkey', $_POST['delete_list']);
+      $this->deleteSearchKeys('igdbsearched','searchkey', $_POST['delete_list']);
       $results = "Item(s) Deleted from Database";
     }
     
-    $searchKeyResults = $this->getAllResultsById('igdbSearched');
+    $searchKeyResults = $this->getAllResultsById('igdbsearched');
     include 'form-file.php';
 
   }
@@ -230,7 +230,7 @@ class IGDBPage {
     $IGDBSearchedA['is_processed'] = 0;
     $IGDBSearchedA['searchobj'] = json_encode($data);
     $IGDBSearchedA['timestamp'] = time();
-    $this->sendToTable('IGDBSearched',$IGDBSearchedA);
+    $this->sendToTable('igdbsearched',$IGDBSearchedA);
   }
 
   public function sendToTable($table,$values){
