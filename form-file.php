@@ -19,6 +19,11 @@
         </tr>   
 </table>
 <div>
+<?php if(strlen($apikey) == 0){?>
+<div class="notice notice-success is-dismissible">
+    <p>IGDB API KEY is not configured <a href="<?php echo get_site_url(); ?>/wp-admin/admin.php?page=igdb_settings_rbb">click here</a></p>
+</div>
+<?php } ?>
 <?php if(count($results)){?>
 <div class="notice notice-success is-dismissible">
     <p><?php echo $results; ?></p>

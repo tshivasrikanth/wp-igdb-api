@@ -83,7 +83,7 @@ class IGDBPage {
     check_ajax_referer( 'process_reservation_nonce', 'nonce' );
     if( true ){
       $this->igdbProcessSearchTable($_POST['id']);
-      wp_send_json_error('Success');
+      wp_send_json_success('Success');
     } else {
       wp_send_json_error( array( 'error' => $custom_error ) );
     }
@@ -138,6 +138,8 @@ class IGDBPage {
     }
     
     $searchKeyResults = $this->getAllResultsById('igdbsearched');
+	$apikey = get_option('igdbapikey');
+	
     include 'form-file.php';
 
   }
@@ -169,7 +171,7 @@ class IGDBPage {
 
   public function igdb_settings_page_display() {
   
-    if (!current_user_can('manage_options')) {
+	if (!current_user_can('manage_options')) {
         wp_die('Unauthorized user');
     }
   

@@ -11,7 +11,7 @@
         </tr>
         <tr>
             <th scope="row">
-                <?php wp_nonce_field( 'EbayNonce' ); ?>
+                <?php wp_nonce_field( 'IgdbNonce' ); ?>
                 <input type="submit" value="Submit" class="button button-primary button-large">
             </th>
             <td></td>
